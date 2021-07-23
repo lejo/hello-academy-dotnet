@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductStoreAPI", "ProductS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductStoreAPITests", "ProductStoreAPITests\ProductStoreAPITests.csproj", "{002149EF-958D-4B5E-A987-7F76DDED903A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductStoreUI", "ProductStoreUI\ProductStoreUI.csproj", "{F73BF05B-AEBF-44A1-9F03-221D68196F50}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{002149EF-958D-4B5E-A987-7F76DDED903A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{002149EF-958D-4B5E-A987-7F76DDED903A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{002149EF-958D-4B5E-A987-7F76DDED903A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F73BF05B-AEBF-44A1-9F03-221D68196F50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F73BF05B-AEBF-44A1-9F03-221D68196F50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F73BF05B-AEBF-44A1-9F03-221D68196F50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F73BF05B-AEBF-44A1-9F03-221D68196F50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
