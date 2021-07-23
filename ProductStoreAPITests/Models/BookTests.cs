@@ -16,5 +16,13 @@ namespace ProductStoreAPITests
             Assert.That(new Product(), Is.Not.InstanceOf<Book>());
             Assert.That(new Product(), Is.InstanceOf<Object>());
         }
+
+
+        [Test]
+        public void NumberOfPagesIsGreaterThanZero()
+        {
+            var book = new Book(title: "Book Title", description: "Book Description", price: 19.99, numOfPages: 15);
+            Assert.That(book.NumOfPages, Is.GreaterThan(0));
+        }
     }
 }

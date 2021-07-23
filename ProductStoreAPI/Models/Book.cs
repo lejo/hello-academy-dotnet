@@ -2,7 +2,16 @@
 {
     public class Book : Product
     {
-        public Book(string title, string description, double price, string author="Author", int numOfPages=0) : base(title, description, price) {} 
+        public int NumOfPages;
+
+        public Book(string title, string description, double price, string author="Author", int numOfPages=0) :  base(title, description, price) 
+        {
+            NumOfPages = numOfPages;
+        } 
+        
+        
+        
+        
         public Book() {}
     }
 }
