@@ -22,7 +22,6 @@ namespace ProductStoreAPI.Controllers
             this.productRepository = productRepository;
         }
 
-
         [HttpGet]
         public ActionResult<List<Product>> GetAllProducts()
         {
