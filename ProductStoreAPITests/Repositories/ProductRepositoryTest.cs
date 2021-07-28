@@ -1,10 +1,7 @@
 ﻿using NUnit.Framework;
+using ProductStoreAPI.Models;
 using ProductStoreAPI.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStoreAPITests.Repositories
 {
@@ -15,6 +12,16 @@ namespace ProductStoreAPITests.Repositories
         {
             var repository = new ProductRepository();
             Assert.That(repository.getAllProducts().Count, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void AddsCorrectly()
+        {
+            var repository = new ProductRepository(new List<Product>());
+
+            repository.add(new Product(title: "Eraser", description: "Pink Eraser", price: 0.99));
+
+            Assert.IsNotEmpty(repository.getAllProducts());
         }
     }
 }

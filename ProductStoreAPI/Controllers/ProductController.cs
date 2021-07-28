@@ -9,16 +9,24 @@ using System.Threading.Tasks;
 
 namespace ProductStoreAPI.Controllers
 {
+
+
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
-        [HttpGet]
-        public List<Product> Get()
-        {
-            var repository = new ProductRepository();
+        private readonly IProductRepository productRepository;
 
-            return repository.getAllProducts();
+        public ProductController(IProductRepository productRepository)
+        {
+            this.productRepository = productRepository;
+        }
+
+
+        [HttpGet]
+        public ActionResult<List<Product>> GetAllProducts()
+        {
+            return Ok(productRepository.getAllProducts());
         }
     }
 }

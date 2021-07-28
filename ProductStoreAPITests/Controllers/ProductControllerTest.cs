@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.AspNetCore.Mvc;
+using NUnit.Framework;
+using ProductStoreAPI.Controllers;
+using ProductStoreAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +15,14 @@ namespace ProductStoreAPITests.Controllers
         [Test]
         public void GetAllProductsReturnHTTP200()
         {
+            IProductRepository productRepository = new ProductRepository();
+            ProductController productController = new ProductController(productRepository);
+            
+            ActionResult<List<ProductStoreAPI.Models.Product>> result = productController.GetAllProducts();
+            OkObjectResult okObjectResult = result.Result as OkObjectResult;
 
+            Assert.NotNull(okObjectResult);
+            Assert.AreEqual(200, okObjectResult.StatusCode);
         }
     }
 }

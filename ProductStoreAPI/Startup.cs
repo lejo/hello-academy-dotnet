@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProductStoreAPI.Repositories;
 
 namespace ProductStoreAPI
 {
@@ -31,6 +32,7 @@ namespace ProductStoreAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "ProductStoreAPI", Version = "v1"});
             });
+            services.AddSingleton<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
