@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ProductStoreAPI.Repositories
 {
-    internal class ProductRepository
+    public class ProductRepository
     {
         public ProductRepository()
         {
