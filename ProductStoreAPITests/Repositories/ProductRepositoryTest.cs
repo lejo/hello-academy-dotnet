@@ -19,6 +19,8 @@ namespace ProductStoreAPITests.Repositories
         {
             var repository = new ProductRepository(new List<Product>());
 
+            Assert.IsEmpty(repository.getAllProducts());
+
             repository.add(new Product(title: "Eraser", description: "Pink Eraser", price: 0.99));
 
             Assert.IsNotEmpty(repository.getAllProducts());

@@ -27,5 +27,12 @@ namespace ProductStoreAPI.Controllers
         {
             return Ok(productRepository.getAllProducts());
         }
+
+        [HttpPost]
+        public OkResult AddNew(Product newProduct)
+        {
+            this.productRepository.add(newProduct);
+            return Ok();
+        }
     }
 }
