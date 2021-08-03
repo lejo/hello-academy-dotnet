@@ -27,7 +27,14 @@ namespace ProductStoreAPI.Repositories
 
         public void add(Product product)
         {
-            listOfProducts.Add(product);
+            if (product.isInvalid())
+            {
+                throw new Exception("Invalid Product");
+            }
+            else
+            {
+                listOfProducts.Add(product);
+            }
         }
 
         public List<Product> getAllProducts()

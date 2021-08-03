@@ -46,5 +46,29 @@ namespace ProductStoreAPITests.Controllers
 
 
         }
+
+        [Test]
+        public void AddNewRejectsProductsWithoutPrice()
+        {
+            Product newProduct = new Product();
+            newProduct.Price = 0;
+
+            IProductRepository productRepository = new ProductRepository();
+            ProductController productController = new ProductController(productRepository);
+
+            BadRequestResult addResult = (BadRequestResult) productController.AddNew(newProduct);
+
+            // Get the list of products so we can validate it was actually added
+            ActionResult<List<ProductStoreAPI.Models.Product>> getResult = productController.GetAllProducts();
+            OkObjectResult okGetResult = getResult.Result as OkObjectResult;
+            List<Product> listOfProducts = okGetResult.Value as List<Product>;
+
+            Assert.AreEqual(400, addResult.StatusCode);
+            Assert.AreEqual(2, listOfProducts.Count);
+
+
+        }
+
+
     }
 }

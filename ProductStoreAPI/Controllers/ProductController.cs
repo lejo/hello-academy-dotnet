@@ -29,10 +29,16 @@ namespace ProductStoreAPI.Controllers
         }
 
         [HttpPost]
-        public OkResult AddNew(Product newProduct)
+        public ActionResult AddNew(Product newProduct)
         {
-            this.productRepository.add(newProduct);
-            return Ok();
+            try {
+                this.productRepository.add(newProduct);
+                return Ok();
+
+            } catch (Exception e) 
+            {
+                return BadRequest();
+            }
         }
     }
 }

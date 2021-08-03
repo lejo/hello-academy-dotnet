@@ -2,9 +2,9 @@
 {
     public class Product
     {
-        public string Description { get; } = "Coming Soon";
-        public double Price { get; } = 0d;
-        public string Title { get; } = "Coming Soon";
+        public string Description { get; set; } = "Coming Soon";
+        public double Price { get; set; } = 0d;
+        public string Title { get; set; } = "Coming Soon";
 
         public Product(string title, string description, double price)
         {
@@ -15,6 +15,11 @@
 
         public Product()
         {
+        }
+
+        public bool isInvalid()
+        {
+            return Price == 0 || Title == "Coming Soon" || Description == "Coming Soon";
         }
     }
 }
