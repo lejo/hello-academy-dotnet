@@ -7,21 +7,37 @@ namespace ProductStoreAPITests
     public class ProductTests
     {
         [Test]
-        public void DescriptionDefaultsToComingSoon()
+        public void ValidProduct()
         {
-            Assert.AreEqual("Coming Soon", new Product().Description);
+            Product p = new Product();
+            p.Title = "Product Title";
+            p.Description = "Product Description";
+            p.Price = 5;
+
+            Assert.IsTrue(p.isValid());
+        }
+
+        [Test]
+        public void ProductWithoutATitileIsNotValid()
+        {
+            Product p = new Product();
+            p.Title = null;
+            p.Description = "Product Description";
+            p.Price = 5;
+
+            Assert.IsFalse(p.isValid());
         }
         
+
         [Test]
-        public void TitleDefaultsToComingSoon()
+        public void ProductWithOnlySpacesInTitileIsNotValid()
         {
-            Assert.AreEqual("Coming Soon", new Product().Title);
-        }
-        
-        [Test]
-        public void PriceDefaultsToZero()
-        {
-            Assert.Zero(new Product().Price);
+            Product p = new Product();
+            p.Title = "    ";
+            p.Description = "Product Description";
+            p.Price = 5;
+
+            Assert.IsFalse(p.isValid());
         }
         
         

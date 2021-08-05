@@ -17,9 +17,17 @@
         {
         }
 
+        public bool isValid()
+        {
+            return Price != 0 && Title != null && Description != null;
+        }
+
+
+
+
         public bool isInvalid()
         {
-            return Price == 0 || Title == "Coming Soon" || Description == "Coming Soon";
+            return !isValid();
         }
     }
 }
