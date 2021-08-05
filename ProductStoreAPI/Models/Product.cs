@@ -2,10 +2,9 @@
 {
     public class Product
     {
-        public string Description { get; set; } = "Coming Soon";
-        public double Price { get; set; } = 0d;
-        public string Title { get; set; } = "Coming Soon";
-
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public string Title { get; set; }
         public Product(string title, string description, double price)
         {
             Title = title;
@@ -19,7 +18,7 @@
 
         public bool isValid()
         {
-            return Price != 0 && Title != null && Description != null;
+            return Price != 0 && !string.IsNullOrWhiteSpace(Title) && Description != null;
         }
 
 

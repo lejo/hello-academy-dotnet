@@ -33,6 +33,7 @@ namespace ProductStoreAPITests
         public void ProductWithOnlySpacesInTitileIsNotValid()
         {
             Product p = new Product();
+
             p.Title = "    ";
             p.Description = "Product Description";
             p.Price = 5;
