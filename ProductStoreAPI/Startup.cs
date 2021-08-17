@@ -33,6 +33,15 @@ namespace ProductStoreAPI
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "ProductStoreAPI", Version = "v1"});
             });
             services.AddSingleton<IProductRepository, ProductRepository>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("localhost",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost", "https://localhost").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    }
+                    );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +57,8 @@ namespace ProductStoreAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

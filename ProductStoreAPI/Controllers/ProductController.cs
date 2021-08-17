@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductStoreAPI.Models;
 using ProductStoreAPI.Repositories;
@@ -13,6 +14,7 @@ namespace ProductStoreAPI.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("localhost")]
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository productRepository;
