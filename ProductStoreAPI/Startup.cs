@@ -38,9 +38,8 @@ namespace ProductStoreAPI
                 options.AddPolicy("localhost",
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost", "https://localhost").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                    }
-                    );
+                        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
             });
         }
 
